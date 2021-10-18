@@ -5,7 +5,7 @@ const { version: appVersion } = require('../../package.json');
 export const environment = {
   appVersion,
   backend: {
-    uri: 'http://localhost:9000',
+    uri: '$BACKEND_URI',
   },
   production: true,
 };
