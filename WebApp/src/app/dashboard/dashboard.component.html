@@ -1,0 +1,126 @@
+<h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white tracking-tight">Oversikt</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 p-4 gap-4">
+  <div class="bg-blue-500 dark:bg-gray-800 shadow rounded border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+    <div>
+      <div *ngIf="municipalities$ | async as municipalities; else municipalitiesLoadingOrError" class="grid grid-cols-3 p-3">
+        <div class="flex justify-center items-center w-14 h-14 rounded-full transition-all duration-300 transform group-hover:rotate-12">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+            />
+          </svg>
+        </div>
+
+        <div class="col-span-2 grid grid-rows-2">
+          <span class="text-5xl">{{ municipalities?.length }}</span>
+          <span>fylke<span *ngIf="municipalities.length > 1">r</span></span>
+        </div>
+      </div>
+      <div class="bg-blue-600 dark:bg-gray-600 text-white" *ngIf="municipalities$ | async">
+        <div class="p-3">
+          <a routerLink="/fylker">Se alle fylker</a>
+        </div>
+      </div>
+      <ng-template #municipalitiesLoadingOrError>
+        <ng-container *ngIf="municipalityFetchError; else loading">
+          <div class="row mx-0">
+            <div class="my-3 block text-sm text-left text-white bg-yellow-500 h-12 flex items-center p-4 rounded-md" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+              Kunne ikke hente fylker...
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #loading class="">
+          <div class="p-3">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
+            Henter fylker ...
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="bg-blue-500 dark:bg-gray-800 shadow rounded border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+    <div>
+      <div *ngIf="communities$ | async as communities; else communitiesLoadingOrError" class="grid grid-cols-3 p-3">
+        <div
+          class="
+            flex
+            justify-center
+            items-center
+            w-14
+            h-14
+            rounded-full
+            transition-all
+            duration-300
+            transform
+            group-hover:rotate-12
+          "
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+            />
+          </svg>
+        </div>
+
+        <div class="col-span-2 grid grid-rows-2">
+          <span class="text-5xl">{{ communities?.length }}</span>
+          <span>Kommune<span *ngIf="communities.length > 1">r</span></span>
+        </div>
+      </div>
+      <div class="bg-blue-600 dark:bg-gray-600 text-white" *ngIf="communities$ | async">
+        <div class="p-3">
+          <a routerLink="/kommuner">Se alle kommuner</a>
+        </div>
+      </div>
+      <ng-template #communitiesLoadingOrError>
+        <ng-container *ngIf="communityFetchError; else loading">
+          <div class="row mx-0">
+            <div
+              class="my-3 block text-sm text-left text-white bg-yellow-500 h-12 flex items-center p-4 rounded-md"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="w-6 h-6 mx-2 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+              Kunne ikke hente kommuner...
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #loading>
+          <div class="p-3">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
+            Henter kommuner ...
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>

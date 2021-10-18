@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  backend:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;
+      - AllowedHosts__0=https://localhost:9100
