@@ -1,0 +1,45 @@
+<h1 class="text-3xl sm:text-5xl text-gray-800 dark:text-white tracking-tight">Om</h1>
+
+<div class="mt-3">
+  <table class="table-fixed">
+    <thead>
+      <tr>
+        <th class="w-1/4"></th>
+        <th class="w-1/2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Klientversjon</td>
+        <td>{{ appVersion }}</td>
+      </tr>
+      <tr>
+        <td>Serverversjon</td>
+        <td *ngIf="serverMetadata$ | async as metadata; else metadataLoadingOrError">{{ metadata?.version }}</td>
+        <ng-template #metadataLoadingOrError>
+          <ng-container *ngIf="metadataFetchError; else loading">
+            <td>
+              <div class="block text-sm text-left text-white bg-yellow-500 h-12 flex items-center rounded-md" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 mx-2 stroke-current">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  ></path>
+                </svg>
+                Feil ved henting...
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-template #loading>
+            <td class="flex">
+              <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-900 dark:border-white"></div>
+            </td>
+          </ng-template>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

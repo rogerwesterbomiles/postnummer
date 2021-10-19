@@ -5,7 +5,7 @@
 
 <div *ngIf="!selectedMunicipality">
   <div class="mt-4 mx-4" *ngIf="municipalities$ | async as municipalities; else municipalitiesLoadingOrError">
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="sm:w-full lg:w-3/4 xl:w-1/2 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
         <table class="w-full">
           <thead>
@@ -119,10 +119,10 @@
     </button>
   </div>
 
-  <span *ngIf="selectedMunicipality" class="text-xl sm:text-5xl text-gray-800 dark:text-white tracking-tight">Tilhørende kommuner</span>
+  <span *ngIf="selectedMunicipality" class="text-xl text-gray-800 dark:text-white tracking-tight">Tilhørende kommuner</span>
 
   <div class="mt-4 mx-4" *ngIf="communitites$ | async as communities; else communitiesLoadingOrError">
-    <div class="w-1/3 overflow-hidden rounded-lg shadow-xs">
+    <div class="sm:w-full lg:w-1/3 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
         <table class="w-full">
           <thead>

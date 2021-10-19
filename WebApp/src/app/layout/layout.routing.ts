@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'kart',
         loadChildren: () => import('../map/map.module').then((m) => m.MapModule),
       },
+      {
+        path: 'om',
+        loadChildren: () => import('../about/about.module').then((m) => m.AboutModule),
+      },
       { path: '**', redirectTo: 'error/404' },
     ],
   },

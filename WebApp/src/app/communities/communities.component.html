@@ -1,7 +1,7 @@
 <h1 class="text-3xl sm:text-5xl text-gray-800 dark:text-white tracking-tight">Kommuner</h1>
 
 <div class="mt-4 mx-4" *ngIf="communities$ | async as communities; else communitiesLoadingOrError">
-  <div class="w-full overflow-hidden rounded-lg shadow-xs">
+  <div class="sm:w-full lg:w-3/4 xl:w-1/2 overflow-hidden rounded-lg shadow-xs">
     <div class="w-full overflow-x-auto">
       <table class="w-full">
         <thead>
