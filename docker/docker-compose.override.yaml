@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   backend:
@@ -8,7 +8,6 @@ services:
       - AllowedHosts__0=http://localhost:9100
       - AllowedHosts__1=https://localhost:9100
   frontend:
-    build:
-      context: ../WebApp
-      args:
-        - API_URL=http://localhost:9000
+    #Do not share secrets with environment, will be sendt in clear text to the clients browser
+    environment:
+      - BACKEND_URL=http://localhost:9000

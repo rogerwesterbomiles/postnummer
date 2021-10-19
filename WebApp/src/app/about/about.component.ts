@@ -12,7 +12,6 @@ import { ServerService } from '../core/services/server.service';
 })
 export class AboutComponent implements OnInit {
   appVersion = environment.appVersion;
-
   serverMetadata$: Observable<any> | undefined;
   metadataFetchError: any;
 
