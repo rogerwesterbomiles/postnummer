@@ -17,11 +17,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Go to directory WebApp
-        run: cd WebApp
       - name: Install dependencies
+        working-directory: ./WebApp
         run: npm ci
       - name: Build
+        working-directory: ./WebApp
         run: npm run build:prod
       # - name: Test
       #   run: npm test
