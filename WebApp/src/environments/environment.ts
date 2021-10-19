@@ -3,13 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 declare let require: any;
+declare let window: any;
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version: appVersion } = require('../../package.json');
 
 export const environment = {
   appVersion,
   backend: {
-    uri: 'http://localhost:9000',
+    uri: window['env']['BACKEND_URL'] || 'http://localhost:9000',
   },
   production: false,
 };

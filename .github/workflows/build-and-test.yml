@@ -17,9 +17,25 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies for WebApi
+        working-directory: ./WebApi
+        run: dotnet restore
+      - name: Build WebApi
+        working-directory: ./WebApi
+        run: dotnet build --configuration Release --no-restore
+      - name: Test WebApi
+        working-directory: ./WebApi
+        run: dotnet test --no-restore --verbosity normal
+      - name: Install dependencies for WebApp
+        working-directory: ./WebApp
         run: npm ci
-      - name: Build
+      - name: Build Angular app
+        working-directory: ./WebApp
         run: npm run build:prod
       # - name: Test
+      #   working-directory: ./WebApp
       #   run: npm test

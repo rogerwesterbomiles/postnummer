@@ -6,7 +6,7 @@
 3. Docker Desktop
 
 ## Build and run
-- Just with commando line
+- Just going commando
     1.  Open a terminal, go to ```<repo root>\WebApi```
     2. ```dotnet watch run```
     3. Open a new terminal, go to ```<repo root>\WebApp```
