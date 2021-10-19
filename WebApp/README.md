@@ -1,27 +1,24 @@
 # WebApp
+Graphical client for showing data from backend endpoints
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+# Prerequisites
+- Node.js (LTS)
 
-## Development server
+# Run it
+2. go to ```<root of repo>\WebApp```
+3. Install dependencies: ```npm install```
+3. Run tests: ```npm test```
+3. Run application: ```npm start```
+    - Starts a Angular development server on https://localhost:9100
+4. Open the url on you browser
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Run with docker
+1. Build:
+    - ```docker build -t webapp .```
+2. Run
+    - ```docker run --name webapp -p 9100:80 portal```
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Packages used:
+- CSS framework: [Tailwindcss](https://tailwindcss.com/), and inspiration from [Tailwind components](https://tailwindcomponents.com/)
+  - helps with responsive design, and dark mode
+- [Prettier](https://prettier.io/) for code formating
